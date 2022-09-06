@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRY10</title>
+</head>
+<body>
+    <script>
+        //0~4までの範囲の乱数を生成し、定数constに格納する
+        const random = Math.floor(Math.random()*5);
+        document.write(`<p>random:${random}</p>`);
+
+        switch(random){
+            case 1:
+                Document.write(`<p>変数randomの値は１です。</p>`);
+                break;  //switch文の処理を終了する
+            case 2:
+                document.write(`<p>変数randomの値は２です。</p>`);
+                break;  //switch文の処理を終了する
+            default:random
+                document.write(`<p>変数randomの値は１，２ではありません</p>`);
+        }
+        
+    </script>
+</body>
+</html>
