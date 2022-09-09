@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK07</title>
+</head>
+<body>
+    <script>
+        //１
+        let random = Math.floor(Math.random()* 100)+1; 
+        document.write(`${random}`);
+        
+        switch(true){
+            case random%3==0 && random%6==0:
+                document.write(`<p>３と６の倍数です。</p>`);
+                break;
+            case   random%3==0  :
+                document.write(`<p>3の倍数で、6の倍数ではありません</p>`);
+                break;
+            default:
+                document.write(`<p>倍数ではありません</p>`);
+        }
+
+        //2
+        let random01 = Math.floor(Math.random()* 10)+1; 
+        document.write(`random01 =${random01}`);
+        let random02 = Math.floor(Math.random()* 10)+1; 
+        document.write(`<p>random02 =${random02}</p>`);
+            random03=Math.floor((random01+random02)/3);
+
+        switch(true){
+            case random01 < random02:
+                document.write(`<p>random01 =${random01} , random02 =${random02}です。
+                     random02の方が大きいです。2つの数字の中には3の倍数が${random03}つ含まれています。</p>`);
+                break;
+            case random01==random02 :
+                document.write(`<p>random01 = ${random01}, random02 =${random02} です。
+                     2つは同じ数です。2つの数字の中には3の倍数が${random03}つ含まれています。</p>`);
+                break;
+            default:
+                document.write(`<p>2つの数字の中に3の倍数が含まれていません</p>`);
+        }
+    </script>
+</body>
+</html>
