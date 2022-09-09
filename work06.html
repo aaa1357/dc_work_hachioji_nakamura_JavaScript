@@ -8,6 +8,9 @@
 </head>
 <body>
     <script>
+
+        //1
+
         let result;
         let score = Math.floor(Math.random()* 100)+1;
         document.write(`${score}`);
@@ -17,6 +20,22 @@
             document.write(`<p>3の倍数で、6の倍数ではありません</p>`);
         }else{
             document.write(`<p>倍数ではありません</p>`);
+        }
+
+        //2
+
+        let random01 = Math.floor(Math.random()* 10)+1; 
+        document.write(`random01 =${random01}`);
+        let random02 = Math.floor(Math.random()* 10)+1; 
+        document.write(`<p>random02 =${random02}</p>`);
+            random03=Math.floor((random01+random02)/3);
+
+        if(random01<random02){
+            document.write(` random02の方が大きいです。2つの数字の中には3の倍数が${random03}つ含まれています。`);
+        }else if(random01==random02){
+            document.write(`2つは同じ数です。2つの数字の中には3の倍数が${random03}つ含まれています。`);
+        }else if(random03==0){
+        document.write("2つの数字の中に3の倍数が含まれていません")
         }
     </script>
 </body>
