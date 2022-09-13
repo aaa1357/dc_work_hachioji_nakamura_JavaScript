@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK09</title>
+</head>
+<body>
+    <script>
+        //1
+        let i=0;
+        while(i<=100){
+            if(i%3==0 && i%4==0){
+                document.write("<p>Fizz Buzz</p>");
+            }else if(i%4==0){
+                document.write("<p>Buzz</p>");
+            }else if(i%3==0){
+                document.write("<p>Fizz</p>");
+            }else{document.write(`<p>${i}</p>`);} 
+            i++;
+        }
+        //2
+        let u=1;
+        while(u<10){
+            let e=1;
+            while(e<10){
+            let ue = u * e;
+            document.write(`<p>${u}*${e}=${ue}</p>`);
+            e++;
+            }
+        u++;
+        }
+        //3
+        let z=1;
+        while(z<10){
+            let x=1;
+            while(x<10){
+                let xz= z*x;
+                let c ="!";
+                let v="*";
+                document.write(`${c.repeat(z)}<p>${v.repeat(xz)}</p>`);
+                x++;
+            }
+        z++;
+            if (xz >10){
+                break;
+            }
+        }
+    </script>
+</body>
+</html>
