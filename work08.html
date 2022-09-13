@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK08</title>
+</head>
+<body>
+    <script>
+        //1
+        for(let i=1;i <= 100;i++){   
+            if(i%3==0 && i%4==0){
+                document.write("<p>Fizz Buzz</p>");
+            }else if(i%4==0){
+                document.write("<p>Buzz</p>");
+            }else if(i%3==0){
+                document.write("<p>Fizz</p>");
+            }else{document.write(`<p>${i}</p>`);} 
+            }
+        //2
+        for(let i=1; i <=9;i++){
+            for(let j=1;j<=9;j++){
+            let ij = i * j;
+            document.write(`<p>${i}*${j}=${ij}</p>`);}
+        }
+        //3
+        for(let i=1;i<=10;i++){
+            for(let j=1;j<=10;j++){
+                let ij = i*j;
+                let b = "*";
+                let a = "!";
+                document.write(`${a.repeat(i)}<p>${b.repeat(ij)}</p>`);
+            }
+                if (ij >10){
+                break;
+                }
+        }
+        
+    </script>
+</body>
+</html>
