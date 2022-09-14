@@ -8,7 +8,24 @@
 </head>
 <body>
     <script>
+        //1
+        let num=[];
+        for(let i=0;i< 5; i++){
+            num.push(Math.floor(Math.random()* 100)+1);
+            document.write("配列の"+(i+1)+"番目の要素は「"+ num[i]+"」です。<br>");
+        }
         
+        //2
+
+        let num1=[];
+        for(let i=0;i< 5; i++){
+            num1.push(Math.floor(Math.random()* 100)+1);
+            if(num1[i]%2==0){
+            document.write("配列の"+(i+1)+"番目の要素は"+ num1[i]+"(偶数です)<br>");
+            }else{
+                document.write("配列の"+(i+1)+"番目の要素は"+ num1[i]+"」(奇数です)<br>");  
+            }
+        }
     </script>
 </body>
 </html>
