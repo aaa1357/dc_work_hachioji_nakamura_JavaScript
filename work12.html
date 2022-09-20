@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK12</title>
+</head>
+<body>
+    <script>
+        //1
+        let class01 = {
+            prf1:{name:"tokugawa",score:(Math.floor(Math.random()* 100)+1)},
+            prf2:{name:"oda",     score:(Math.floor(Math.random()* 100)+1)},
+            prf3:{name:"toyotomi",score:(Math.floor(Math.random()* 100)+1)},
+            prf4:{name:"takeda",  score:(Math.floor(Math.random()* 100)+1)}
+        }
+        let class02 = {
+            prf1:{name:"minamoto",score:(Math.floor(Math.random()* 100)+1)},
+            prf2:{name:"taira",   score:(Math.floor(Math.random()* 100)+1)},
+            prf3:{name:"sugawara",score:(Math.floor(Math.random()* 100)+1)},
+            prf4:{name:"fujiwara",score:(Math.floor(Math.random()* 100)+1)}
+        }
+            let oda = class01.prf2.score;
+            let sugawara = class02.prf3.score;
+            
+            
+
+        if(oda>sugawara){
+            let difference = oda - sugawara;
+            document.write
+            (`${class01.prf2.name}の点数は${oda}です、
+              ${class02.prf3.name}の点数は${sugawara}です。
+              ${class01.prf2.name}さんの点数は${difference}点高いです。`);
+        }else{
+            let difference1 = sugawara - oda;
+            document.write
+            (`${class02.prf3.name}の点数は${sugawara}です、
+              ${class01.prf2.name}の点数は${oda}です。
+              ${class02.prf3.name}さんの点数は${difference1}点高いです。`);  
+        }
+        
+    </script>
+</body> 
+
+</html>
