@@ -21,10 +21,17 @@
             prf3:{name:"sugawara",score:(Math.floor(Math.random()* 100)+1)},
             prf4:{name:"fujiwara",score:(Math.floor(Math.random()* 100)+1)}
         }
-            let oda = class01.prf2.score;
-            let sugawara = class02.prf3.score;
-            
-            
+        
+        //2
+        let tokugawa = class01.prf1.score;
+        let oda =      class01.prf2.score;
+        let toyotomi = class01.prf3.score;
+        let takeda =   class01.prf4.score;
+
+        let minamoto = class02.prf1.score;
+        let taira =    class02.prf2.score;
+        let sugawara = class02.prf3.score;
+        let fujiwara = class02.prf4.score;
 
         if(oda>sugawara){
             let difference = oda - sugawara;
@@ -39,7 +46,12 @@
               ${class01.prf2.name}の点数は${oda}です。
               ${class02.prf3.name}さんの点数は${difference1}点高いです。`);  
         }
-        
+
+        //3
+        average1 = (tokugawa+oda+toyotomi+takeda)/4;
+        average2 = (minamoto+taira+sugawara+fujiwara)/4;
+        document.write(`<p>クラス１の平均は${average1}点です</p>`);
+        document.write(`<p>クラス１の平均は${average2}点です</p>`);
     </script>
 </body> 
 
