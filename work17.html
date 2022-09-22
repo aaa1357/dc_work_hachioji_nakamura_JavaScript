@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK17</title>
+</head>
+<body>
+    <script>
+        let date = new Date();
+        document.write(`<p>${date}</p>`); //本日日付の表示
+
+        let birth =new Date(2000,2,22);
+        document.write(`<p>${birth}</p>`); //誕生日
+
+        let diffence = date - birth;
+        let days = (Math.trunc(diffence/(1000*3600*24)));
+        document.write(`<p>誕生日からの日数は${days+30}日</p>`);
+
+        
+    </script>
+</body>
+</html>
