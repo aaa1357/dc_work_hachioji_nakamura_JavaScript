@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK18</title>
+</head>
+<body>
+    <script>
+        const aaa = (num) => {
+            let r = num;
+            let area_of_circle = r*r* Math.PI;
+            let diameter = r*2;
+
+            let string = (`<p>円の面積:${area_of_circle}</p>
+                           <p>直径:${diameter}</p>`);
+            return string;
+        }
+        let bbb = aaa(4);
+        document.write(bbb);
+        
+    </script>
+</body>
+</html>
