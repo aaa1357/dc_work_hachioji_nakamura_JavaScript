@@ -9,18 +9,21 @@
 <body>
    <script>
     const aaa = (st) => {
-        let string = 'Java';
-        let bbb = st;
-        let concat = string.concat(bbb);
-        document.write(`<p>${concat}</p>`);	//JavaScriptと表示される
+        let jaba = 'Java';
 
+        let concat = jaba.concat(st);
+        let concat1 = st.toUpperCase();
+        let concat2 = st.toLowerCase();
+        let concat3 = concat.indexOf('s', 0);
+        let concat4 = st.match();
         
-        
-        //let concat1 = string.concat(bbb);
-        let concat2 = bbb.toUpperCase();
-        document.write(`<p>${string}${concat2}</p>`);	//JavaScriptと表示される
+        return document.write(`<p>${concat}</p>`),
+               document.write(`<p>${jaba}${concat1}</p>`), //script大文字
+               document.write(`<p>${jaba}${concat2}</p>`), //scrip小文字
+               document.write(`<p>${concat} "S"は前から ${concat3} 番目</p>`),
+               document.write(`<p>${jaba}${concat3}</p>`);
         }
-    aaa(" script");
+    aaa(" scRipt");
    </script> 
 </body>
 </html>
