@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK19</title>
+</head>
+<body>
+   <script>
+    const aaa = (st) => {
+        let string = 'Java';
+        let bbb = st;
+        let concat = string.concat(bbb);
+        document.write(`<p>${concat}</p>`);	//JavaScriptと表示される
+
+        
+        
+        //let concat1 = string.concat(bbb);
+        let concat2 = bbb.toUpperCase();
+        document.write(`<p>${string}${concat2}</p>`);	//JavaScriptと表示される
+        }
+    aaa(" script");
+   </script> 
+</body>
+</html>
