@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRY24</title>
+</head>
+<body>
+    <script>
+        let str = 'global';     //グローバル変数を定義
+        function scope_in_function(){
+            document.write(`<p>関数内：${typeof(str)}</p>`) //変数strの型
+        }
+        scope_in_function();
+        document.write(`<p>関数外：${typeof(str)}</p>`);    //変数strの型
+    </script>
+</body>
+</html>
