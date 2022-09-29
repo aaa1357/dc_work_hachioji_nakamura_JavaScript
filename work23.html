@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK23</title>
+</head>
+<body>
+    <div id="textbox">
+        <p id="element_1">要素1</p>
+    </div>
+    <script>
+        const id = document.getElementById('textbox');
+        textbox.style.backgroundColor = '#ffff00';
+
+        const elements_1 = document.getElementsByClassName('element_1');
+        element_1.textContent = '変更後テキスト';
+
+        let new_element1 = document.createElement('p'); //コピー
+        new_element1.textContent = '追加テキスト';
+
+        textbox.appendChild(new_element1);//指定要素の中の末尾に追加要素を追加
+        new_element1.style.color = '#ff0000';
+        new_element1.style.fontSize = 30 + 'px';
+    </script>
+</body>
+</html>
