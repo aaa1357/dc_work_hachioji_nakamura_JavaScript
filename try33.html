@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRY330</title>
+</head>
+<body>
+    <style>
+        #button {
+            background-color:#fff;
+        }
+    </style>
+    <input type="button" value="ボタン" id="button">
+        <script>
+            const button = document.getElementById('button');
+            button.style.background = '#ffa500';
+                button.onmouseover = function(){
+                    button.style.background = '#ffa500';
+                }
+                button.onmouseout = function(){
+                    button.style.background = '#ffffff';
+                }
+        </script>
+</body>
+</html>
