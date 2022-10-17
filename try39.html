@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRY39</title>
+</head>
+<body>
+    <div id="count_down">20</div>
+    <input type="button" id="start" value="スタート">
+    <script>
+        //処理を記述していきます
+        let timer;
+        let start = document.getElementById("start");
+        function count_start(){
+            //count_down関数を１０００ミリ秒毎に呼び出す
+            timer = setInterval("count_down()",1000);
+        }
+        
+        function count_down(){
+            const count_down = document.getElementById('count_down');
+            let sec = count_down.textContent;   //表示されているテキストを取得
+            //テキストの数字を１つ減少させる処理
+            sec--;
+            if(sec <= 0){
+                alert("時間です。");
+                count_down.textContent = 20;
+                clearInterval(timer);
+            }else{
+                count_down.textContent = sec;       //テキストを数値の値に書き換える
+            }
+        }
+        start.addEventListener("click",count_start); 
+    </script>
+</body>
+</html>

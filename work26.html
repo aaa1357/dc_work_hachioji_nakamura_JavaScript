@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ストップウォッチ</title>
+</head>
+<body>
+    <div id="box">
+        <div id="num">00:00.00</div>
+        <div id="btns" >
+            <input type="button" value="start" class="button" id="start">
+            <input type="button" value="stop" class="button" id="stop">
+            <input type="button" value="reset" class="button" id="reset">
+        </div>
+    </div>
+    <script>
+        let box = document.getElementById('box');
+        let num = document.getElementById('num');
+        let font = document.getElementById('font');
+        let btns = document.getElementById('btns');
+        let button = document.getElementsByClassName('button');
+
+        let start = document.getElementById("start");
+        let stop = document.getElementById("stop");
+        let reset = document.getElementById("reset");
+        //box style
+        box.style.height= 160 + 'px';
+        box.style.width= 267+ 'px';
+        box.style.margin = 'auto';
+        box.style.backgroundColor = '#00ff00';
+        box.style.padding=30+'px';
+        //num style
+        num.style.textAlign='center';
+        num.style.background='black';
+        num.style.color="white";
+        num.style.maxWidth=100+'%';
+        num.style.lineHeight=96+'px';
+        num.style.margin='auto';
+        num.style.fontSize=40+'px';
+        num.style.color='white';
+        //btns
+        btns.style.margin='auto';
+        btns.style.height=40+'%';
+        btns.style.textAlign='center';
+        btns.style.paddingTop=20+'px';
+        //button
+        button[0].style.backgroundColor='black';
+        button[1].style.backgroundColor='black';
+        button[2].style.backgroundColor='black';
+        button[0].style.color='white';
+        button[1].style.color='white';
+        button[2].style.color='white';
+        button[0].style.lineHeight=30+'px';
+        button[1].style.lineHeight=30+'px';
+        button[2].style.lineHeight=30+'px';
+        button[0].style.width=30+'%';
+        button[1].style.width=30+'%';
+        button[2].style.width=30+'%';
+        button[1].style.opacity=0.5;
+        button[2].style.opacity=0.5;
+             
+        //処理を記述していきます
+
+        // 開始時間
+        let startTime;
+        // 停止時間
+        let stopTime = 0;
+        // タイムアウトID
+        let timeoutID;
+        let timer;
+        let time;
+        function displayTime() {
+            time=new Date(Date.now()-startTime + stopTime);
+            const min=Math.floor(time/1000/60)%60;
+            const sec = Math.floor(time/1000)%60;
+            const msec = Math.floor( time % 1000);
+            const m= ( '00' + min ).slice( -2 );
+            const s= ( '00' + sec ).slice( -2 );
+            const ms = ( '00' + msec ).slice( -2 );
+            num.textContent = `${m}:${s}.${ms}`;
+            timer = setTimeout("displayTime()",10);
+        }   
+        function count_start(){
+            start.disabled = true;
+            stop.disabled = false;
+            reset.disabled = true;
+            startTime = Date.now();
+            displayTime() ;
+            button[0].style.opacity=0.5;
+            button[1].style.opacity=1;
+            button[2].style.opacity=0.5;
+	    }
+        
+        //stopの処理
+        function count_stop(){
+            start.disabled = false;
+            stop.disabled = true;
+            reset.disabled = false;
+            clearTimeout(timer);
+            stopTime += (Date.now() - startTime);
+            button[0].style.opacity=1;
+            button[1].style.opacity=0.5;
+            button[2].style.opacity=1;
+        }
+        //resetの処理
+        function reSet(){
+            start.disabled = false;
+            stop.disabled = true;
+            reset.disabled = true;
+            num.textContent = '00:00.00';
+            stopTime = 0;
+            button[0].style.opacity=1;
+            button[1].style.opacity=0.5;
+            button[2].style.opacity=0.5;
+        }
+        start.addEventListener("click", count_start);
+        stop.addEventListener("click", count_stop);
+        reset.addEventListener("click", reSet);
+    </script>
+</body>
+</html>
