@@ -80,7 +80,7 @@
             const s= ( '00' + sec ).slice( -2 );
             const ms = ( '00' + msec ).slice( -2 );
             num.textContent = `${m}:${s}.${ms}`;
-            timer = setTimeout("displayTime()",10);
+            timer = setTimeout("displayTime()",100);console.log(num);
         }   
         function count_start(){
             start.disabled = true;
