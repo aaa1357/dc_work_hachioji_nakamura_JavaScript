@@ -84,7 +84,7 @@ body{margin: 0 auto;
     <div class="piano">
         <div class="soundName" id="soundTitle"></div>
     <div class="display" id="send"></div>
-    <form class="kenban" action="javascript:void(0)" id="kenban1">
+    <form class="kenban" action="javascript:void(0)">
         <div class="a">
             <button type="submit" class="button" id="do">ド</button>
         </div>
@@ -112,11 +112,9 @@ body{margin: 0 auto;
     </div>
 </div>
 <script>
-    //要素取得    
-    
+    //要素取得
     let soundTitle = document.getElementById("soundTitle");
     let button = document.getElementsByClassName("button");
-    let button1 = document.querySelectorAll('.button');
     let send = document.getElementById('send');
     let kdo = document.getElementById('do');
     let kre = document.getElementById('re');
@@ -177,7 +175,6 @@ body{margin: 0 auto;
         timer = setTimeout("timeOut3()",1000);
     }
     function timeOut3(){
-        clearTimeout(timer);
         send.textContent = '';
         button[0].disabled = false;
         button[1].disabled = false;
@@ -186,6 +183,7 @@ body{margin: 0 auto;
         button[4].disabled = false;
         button[5].disabled = false;
         button[6].disabled = false;
+        clearTimeout(timer);
         button[0].style.borderBottomWidth='4px';
         button[0].style.borderBottomColor='#627295';
         button[0].style.transform = 'initial';
@@ -208,139 +206,117 @@ body{margin: 0 auto;
         button[6].style.borderBottomColor='#627295';
         button[6].style.transform = 'initial';
     }
-    function keys(){
-        switch(event.target) {
-            case 'click',kdo:
-                timeOut3();
-                send.textContent = 'ド';
-                button[0].style.transform = 'translate(4px,4px)';
-                button[0].style.borderBottomWidth='0px';
-                timeOut2();                    ;
-            break;
-            case 'click',kre:
-                timeOut3();
-                send.textContent = 'レ';
-                button[1].style.transform = 'translate(4px,4px)';
-                button[1].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kmi:
-                timeOut3();
-                send.textContent = 'ミ';
-                button[2].style.transform = 'translate(4px,4px)';
-                button[2].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kfa:
-                timeOut3();
-                send.textContent = 'ファ';
-                button[3].style.transform = 'translate(0px,4px)';
-                button[3].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kso:
-                timeOut3();
-                send.textContent = 'ソ';
-                button[4].style.transform = 'translate(-4px,4px)';
-                button[4].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kra:
-                timeOut3();
-                send.textContent = 'ラ';
-                button[5].style.transform = 'translate(-4px,4px)';
-                button[5].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',ksi:
-                timeOut3();        
-                send.textContent = 'シ';
-                button[6].style.transform = 'translate(-4px,4px)';
-                button[6].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-        }
-    }
-    //手動演奏
-    class Event {
-        handleEvent(manualPlay) {
-            switch(event.target) {
-                case 'click',kdo:
-                    keys();
-                break;
-                case 'click',kre:
-                    keys();
-                break;
-                case 'click',kmi:
-                    keys();
-                break;
-                case 'click',kfa:
-                    keys();
-                break;
-                case 'click',kso:
-                    keys();
-                break;
-                case 'click',kra:
-                    keys();
-                break;
-                case 'click',ksi:
-                    keys();
-                break;    
-            }
-        }
-    }
-    let manualPlay = new Event();
-    //自動演奏
     function fdo() {
-        timeOut3();
         send.textContent = 'ド';
         button[0].style.transform = 'translate(4px,4px)';
         button[0].style.borderBottomWidth='0px';
-        timeOut2();
     }
     function fre() {
-        timeOut3();
         send.textContent = 'レ';
         button[1].style.transform = 'translate(4px,4px)';
         button[1].style.borderBottomWidth='0px';
-        timeOut2();
     }
     function fmi() {
-        timeOut3();
         send.textContent = 'ミ';
         button[2].style.transform = 'translate(4px,4px)';
         button[2].style.borderBottomWidth='0px';
-        timeOut2();
     }
     function ffa() {
-        timeOut3();
         send.textContent = 'ファ';
         button[3].style.transform = 'translate(0px,4px)';
         button[3].style.borderBottomWidth='0px';
-        timeOut2();
     }
     function fso() {
-        timeOut3();
         send.textContent = 'ソ';
         button[4].style.transform = 'translate(-4px,4px)';
         button[4].style.borderBottomWidth='0px';
-        timeOut2();
     }
     function fra() {
-        timeOut3();
         send.textContent = 'ラ';
         button[5].style.transform = 'translate(-4px,4px)';
         button[5].style.borderBottomWidth='0px';
-        timeOut2();
     }
     function fsi() {
-        timeOut3();        
         send.textContent = 'シ';
         button[6].style.transform = 'translate(-4px,4px)';
         button[6].style.borderBottomWidth='0px';
+    }
+    //手動演奏
+    function manualPlayDO(){
+        timeOut3();
+        fdo();
         timeOut2();
     }
-    function automaticPlay(){
+    function manualPlayRe(){
+        timeOut3();
+        fre();
+        timeOut2();
+    }
+    function manualPlayMi(){
+        timeOut3();
+        fmi();
+        timeOut2();
+    }
+    function manualPlayFa(){
+        timeOut3();
+        ffa();
+        timeOut2();
+    }
+    function manualPlaySo(){
+        timeOut3();
+        fso();
+        timeOut2();
+    }
+    function manualPlayRa(){
+        timeOut3();
+        fra();
+        timeOut2();
+    }
+    function manualPlaySi(){
+        timeOut3();
+        fsi();
+        timeOut2();
+    }
+    
+    class Event {
+        handleEvent(manualPlay) {
+            //kdo.addEventListener("click", manualPlayDO);
+            //kre.addEventListener("click", manualPlayRe);
+            //kmi.addEventListener("click", manualPlayMi);
+            //kfa.addEventListener("click", manualPlayFa);
+            //kso.addEventListener("click", manualPlaySo);
+            //kra.addEventListener("click", manualPlayRa);
+            //ksi.addEventListener("click", manualPlaySi);
+            switch(event.target) {/////ここから
+                case 'fdo':
+                    manualPlayDO();
+                break;
+                case 'click',kre:
+                    manualPlayRe();
+                break;
+                case 'click',kmi:
+                    manualPlayMi();
+                break;
+                case 'click',kfa:
+                    manualPlayFa();
+                break;
+                case 'click',kso:
+                    manualPlaySo();
+                break;
+                case 'click',kra:
+                    manualPlayRa();
+                break;
+                case 'click',ksi:
+                    manualPlaySi;
+                break;    
+      }
+        }
+    }
+    
+    let manualPlay = new Event();
+    
+    //自動演奏
+        function automaticPlay(){
             if(measure ==0 && rndm==0){fdo(),setTimeout("timeOut()",500)
             soundTitle.textContent = '自動演奏中です：きらきら星';}
             if(measure ==1 && rndm==0){fdo(),setTimeout("timeOut()",500)}
@@ -502,11 +478,13 @@ body{margin: 0 auto;
             rndm = Math.floor(Math.random()*2);
             }  
         //イベント
-        //console.log(button1);
-        for (let i = 0; i < button1.length; i++) {
-        let button2=(button1[i]);
-        button2.addEventListener("click", manualPlay);
-        }
+        
+        kre.addEventListener("click", manualPlay);
+        kmi.addEventListener("click", manualPlay);
+        kfa.addEventListener("click", manualPlay);
+        kso.addEventListener("click", manualPlay);
+        kra.addEventListener("click", manualPlay);
+        ksi.addEventListener("click", manualPlay);
         kauto.addEventListener("click", fauto);
         //preventDefault()      
 </script>

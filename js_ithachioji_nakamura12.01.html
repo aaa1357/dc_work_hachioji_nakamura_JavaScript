@@ -208,89 +208,7 @@ body{margin: 0 auto;
         button[6].style.borderBottomColor='#627295';
         button[6].style.transform = 'initial';
     }
-    function keys(){
-        switch(event.target) {
-            case 'click',kdo:
-                timeOut3();
-                send.textContent = 'ド';
-                button[0].style.transform = 'translate(4px,4px)';
-                button[0].style.borderBottomWidth='0px';
-                timeOut2();                    ;
-            break;
-            case 'click',kre:
-                timeOut3();
-                send.textContent = 'レ';
-                button[1].style.transform = 'translate(4px,4px)';
-                button[1].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kmi:
-                timeOut3();
-                send.textContent = 'ミ';
-                button[2].style.transform = 'translate(4px,4px)';
-                button[2].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kfa:
-                timeOut3();
-                send.textContent = 'ファ';
-                button[3].style.transform = 'translate(0px,4px)';
-                button[3].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kso:
-                timeOut3();
-                send.textContent = 'ソ';
-                button[4].style.transform = 'translate(-4px,4px)';
-                button[4].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kra:
-                timeOut3();
-                send.textContent = 'ラ';
-                button[5].style.transform = 'translate(-4px,4px)';
-                button[5].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',ksi:
-                timeOut3();        
-                send.textContent = 'シ';
-                button[6].style.transform = 'translate(-4px,4px)';
-                button[6].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-        }
-    }
-    //手動演奏
-    class Event {
-        handleEvent(manualPlay) {
-            switch(event.target) {
-                case 'click',kdo:
-                    keys();
-                break;
-                case 'click',kre:
-                    keys();
-                break;
-                case 'click',kmi:
-                    keys();
-                break;
-                case 'click',kfa:
-                    keys();
-                break;
-                case 'click',kso:
-                    keys();
-                break;
-                case 'click',kra:
-                    keys();
-                break;
-                case 'click',ksi:
-                    keys();
-                break;    
-            }
-        }
-    }
-    let manualPlay = new Event();
-    //自動演奏
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
     function fdo() {
         timeOut3();
         send.textContent = 'ド';
@@ -340,7 +258,38 @@ body{margin: 0 auto;
         button[6].style.borderBottomWidth='0px';
         timeOut2();
     }
-    function automaticPlay(){
+    //手動演奏
+    class Event {
+        handleEvent(manualPlay) {
+            switch(event.target) {
+                case 'click',kdo:
+                    fdo();
+                break;
+                case 'click',kre:
+                    fre();
+                break;
+                case 'click',kmi:
+                    fmi();
+                break;
+                case 'click',kfa:
+                    ffa();
+                break;
+                case 'click',kso:
+                    fso();
+                break;
+                case 'click',kra:
+                    fra();
+                break;
+                case 'click',ksi:
+                    fsi();
+                break;    
+            }
+        }
+    }
+    let manualPlay = new Event();
+    
+    //自動演奏
+        function automaticPlay(){
             if(measure ==0 && rndm==0){fdo(),setTimeout("timeOut()",500)
             soundTitle.textContent = '自動演奏中です：きらきら星';}
             if(measure ==1 && rndm==0){fdo(),setTimeout("timeOut()",500)}
