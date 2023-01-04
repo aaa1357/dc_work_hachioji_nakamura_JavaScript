@@ -49,12 +49,11 @@ body{margin: 0 auto;
     max-height: 30%;
     padding-top: 5%;
 }
-.a{
+
+.button{
     width: 13%;
     height: 100%;
-    margin: 0px 3px;    
-}
-.button{
+    margin: 0px 3px;
     width: 100%;
     background-color: white;
     border: 1px solid #000;
@@ -85,27 +84,13 @@ body{margin: 0 auto;
         <div class="soundName" id="soundTitle"></div>
     <div class="display" id="send"></div>
     <form class="kenban" action="javascript:void(0)" id="kenban1">
-        <div class="a">
-            <button type="submit" class="button" id="do">ド</button>
-        </div>
-        <div class="a">
-            <button type="submit" class="button" id="re">レ</button>
-        </div>
-        <div class="a">
-            <button type="submit" class="button" id="mi">ミ</button>
-        </div>
-        <div class="a">
-            <button type="submit" class="button" id="fa">ファ</button>
-        </div>
-        <div class="a">
-            <button type="submit" class="button" id="so">ソ</button>
-        </div>
-        <div class="a">
-            <button type="submit" class="button" id="ra">ラ</button>
-        </div>
-        <div class="a">
-            <button type="submit" class="button" id="si">シ</button>
-        </div>    
+        <button type="submit" class="button" id="do">ド</button>
+        <button type="submit" class="button" id="re">レ</button>
+        <button type="submit" class="button" id="mi">ミ</button>
+        <button type="submit" class="button" id="fa">ファ</button>
+        <button type="submit" class="button" id="so">ソ</button>
+        <button type="submit" class="button" id="ra">ラ</button>
+        <button type="submit" class="button" id="si">シ</button>    
     </form>
     <div class="auto">
         <button type="submit" class="button1" id="auto">自動演奏</button>
@@ -113,402 +98,216 @@ body{margin: 0 auto;
 </div>
 <script>
     //要素取得    
-    
-    let soundTitle = document.getElementById("soundTitle");
-    let button = document.getElementsByClassName("button");
-    let button1 = document.querySelectorAll('.button');
-    let send = document.getElementById('send');
-    let kdo = document.getElementById('do');
-    let kre = document.getElementById('re');
-    let kmi = document.getElementById('mi');
-    let kfa = document.getElementById('fa');
-    let kso = document.getElementById('so');
-    let kra = document.getElementById('ra');
-    let ksi = document.getElementById('si');
     let kauto = document.getElementById('auto');
-    button[0].style.borderBottomWidth='4px';
-    button[0].style.borderBottomColor='#627295';
-    button[1].style.borderBottomWidth='4px';
-    button[1].style.borderBottomColor='#627295';
-    button[2].style.borderBottomWidth='4px';
-    button[2].style.borderBottomColor='#627295';
-    button[3].style.borderBottomWidth='4px';
-    button[3].style.borderBottomColor='#627295';
-    button[4].style.borderBottomWidth='4px';
-    button[4].style.borderBottomColor='#627295';
-    button[5].style.borderBottomWidth='4px';
-    button[5].style.borderBottomColor='#627295';
-    button[6].style.borderBottomWidth='4px';
-    button[6].style.borderBottomColor='#627295';
-    //関数
-    let timer ;
-    function timeOut(){
-        send.textContent = '';
-        kdo.disabled = true;
-        kre.disabled = true;
-        kmi.disabled = true;
-        kfa.disabled = true;
-        kso.disabled = true;
-        kra.disabled = true;
-        ksi.disabled = true;
-        button[0].style.borderBottomWidth='4px';
-        button[0].style.borderBottomColor='#627295';
-        button[0].style.transform = 'initial';
-        button[1].style.borderBottomWidth='4px';
-        button[1].style.borderBottomColor='#627295';
-        button[1].style.transform = 'initial';
-        button[2].style.borderBottomWidth='4px';
-        button[2].style.borderBottomColor='#627295';
-        button[2].style.transform = 'initial';
-        button[3].style.borderBottomWidth='4px';
-        button[3].style.borderBottomColor='#627295';
-        button[3].style.transform = 'initial';
-        button[4].style.borderBottomWidth='4px';
-        button[4].style.borderBottomColor='#627295';
-        button[4].style.transform = 'initial';
-        button[5].style.borderBottomWidth='4px';
-        button[5].style.borderBottomColor='#627295';
-        button[5].style.transform = 'initial';
-        button[6].style.borderBottomWidth='4px';
-        button[6].style.borderBottomColor='#627295';
-        button[6].style.transform = 'initial';
-    }
-    function timeOut2(){
-        timer = setTimeout("timeOut3()",1000);
-    }
-    function timeOut3(){
-        clearTimeout(timer);
-        send.textContent = '';
-        button[0].disabled = false;
-        button[1].disabled = false;
-        button[2].disabled = false;
-        button[3].disabled = false;
-        button[4].disabled = false;
-        button[5].disabled = false;
-        button[6].disabled = false;
-        button[0].style.borderBottomWidth='4px';
-        button[0].style.borderBottomColor='#627295';
-        button[0].style.transform = 'initial';
-        button[1].style.borderBottomWidth='4px';
-        button[1].style.borderBottomColor='#627295';
-        button[1].style.transform = 'initial';
-        button[2].style.borderBottomWidth='4px';
-        button[2].style.borderBottomColor='#627295';
-        button[2].style.transform = 'initial';
-        button[3].style.borderBottomWidth='4px';
-        button[3].style.borderBottomColor='#627295';
-        button[3].style.transform = 'initial';
-        button[4].style.borderBottomWidth='4px';
-        button[4].style.borderBottomColor='#627295';
-        button[4].style.transform = 'initial';
-        button[5].style.borderBottomWidth='4px';
-        button[5].style.borderBottomColor='#627295';
-        button[5].style.transform = 'initial';
-        button[6].style.borderBottomWidth='4px';
-        button[6].style.borderBottomColor='#627295';
-        button[6].style.transform = 'initial';
-    }
-    function keys(){
-        switch(event.target) {
-            case 'click',kdo:
-                timeOut3();
-                send.textContent = 'ド';
-                button[0].style.transform = 'translate(4px,4px)';
-                button[0].style.borderBottomWidth='0px';
-                timeOut2();                    ;
-            break;
-            case 'click',kre:
-                timeOut3();
-                send.textContent = 'レ';
-                button[1].style.transform = 'translate(4px,4px)';
-                button[1].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kmi:
-                timeOut3();
-                send.textContent = 'ミ';
-                button[2].style.transform = 'translate(4px,4px)';
-                button[2].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kfa:
-                timeOut3();
-                send.textContent = 'ファ';
-                button[3].style.transform = 'translate(0px,4px)';
-                button[3].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kso:
-                timeOut3();
-                send.textContent = 'ソ';
-                button[4].style.transform = 'translate(-4px,4px)';
-                button[4].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',kra:
-                timeOut3();
-                send.textContent = 'ラ';
-                button[5].style.transform = 'translate(-4px,4px)';
-                button[5].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-            case 'click',ksi:
-                timeOut3();        
-                send.textContent = 'シ';
-                button[6].style.transform = 'translate(-4px,4px)';
-                button[6].style.borderBottomWidth='0px';
-                timeOut2();
-            break;
-        }
-    }
+    let soundTitle = document.getElementById('soundTitle');
     //手動演奏
-    class Event {
-        handleEvent(manualPlay) {
-            switch(event.target) {
-                case 'click',kdo:
-                    keys();
-                break;
-                case 'click',kre:
-                    keys();
-                break;
-                case 'click',kmi:
-                    keys();
-                break;
-                case 'click',kfa:
-                    keys();
-                break;
-                case 'click',kso:
-                    keys();
-                break;
-                case 'click',kra:
-                    keys();
-                break;
-                case 'click',ksi:
-                    keys();
-                break;    
+    let button;
+    let TimerID;
+
+    window.onload = function () {
+        button = document.getElementsByClassName('button');
+        display = document.getElementById('send');
+    }
+    const keyClick = (e) => {
+            clearTimeout(TimerID);
+            for (var i=0; i<button.length; i++){
+                button[i].style.borderBottomWidth='4px';
             }
+            display.innerHTML = e.target.innerHTML;
+            e.target.style.borderBottomWidth='0px';;
+            TimerID = setTimeout(defaultNote,1000);
+    }
+    function defaultNote(){
+        display.innerHTML = "";
+        for (var i=0; i<button.length; i++){
+            button[i].style.borderBottomWidth='4px';
         }
     }
-    let manualPlay = new Event();
-    //自動演奏
-    function fdo() {
-        timeOut3();
-        send.textContent = 'ド';
-        button[0].style.transform = 'translate(4px,4px)';
-        button[0].style.borderBottomWidth='0px';
-        timeOut2();
-    }
-    function fre() {
-        timeOut3();
-        send.textContent = 'レ';
-        button[1].style.transform = 'translate(4px,4px)';
-        button[1].style.borderBottomWidth='0px';
-        timeOut2();
-    }
-    function fmi() {
-        timeOut3();
-        send.textContent = 'ミ';
-        button[2].style.transform = 'translate(4px,4px)';
-        button[2].style.borderBottomWidth='0px';
-        timeOut2();
-    }
-    function ffa() {
-        timeOut3();
-        send.textContent = 'ファ';
-        button[3].style.transform = 'translate(0px,4px)';
-        button[3].style.borderBottomWidth='0px';
-        timeOut2();
-    }
-    function fso() {
-        timeOut3();
-        send.textContent = 'ソ';
-        button[4].style.transform = 'translate(-4px,4px)';
-        button[4].style.borderBottomWidth='0px';
-        timeOut2();
-    }
-    function fra() {
-        timeOut3();
-        send.textContent = 'ラ';
-        button[5].style.transform = 'translate(-4px,4px)';
-        button[5].style.borderBottomWidth='0px';
-        timeOut2();
-    }
-    function fsi() {
-        timeOut3();        
-        send.textContent = 'シ';
-        button[6].style.transform = 'translate(-4px,4px)';
-        button[6].style.borderBottomWidth='0px';
-        timeOut2();
-    }
-    function automaticPlay(){
-            if(measure ==0 && rndm==0){fdo(),setTimeout("timeOut()",500)
-            soundTitle.textContent = '自動演奏中です：きらきら星';}
-            if(measure ==1 && rndm==0){fdo(),setTimeout("timeOut()",500)}
-            if(measure ==2 && rndm==0){fso(),setTimeout("timeOut()",500)}
-            if(measure ==3 && rndm==0){fso(),setTimeout("timeOut()",500)}
-            if(measure ==4 && rndm==0){fra(),setTimeout("timeOut()",500)}
-            if(measure ==5 && rndm==0){fra(),setTimeout("timeOut()",500)}
-            if(measure ==6 && rndm==0){fso(),setTimeout("timeOut()",2000)}
-            if(measure ==8 && rndm==0){ffa(),setTimeout("timeOut()",500)}
-            if(measure ==9 && rndm==0){ffa(),setTimeout("timeOut()",500)}
-            if(measure ==10 && rndm==0){fmi(),setTimeout("timeOut()",500)}
-            if(measure ==11 && rndm==0){fmi(),setTimeout("timeOut()",500)}
-            if(measure ==12 && rndm==0){fre(),setTimeout("timeOut()",500)}
-            if(measure ==13 && rndm==0){fre(),setTimeout("timeOut()",500)}
-            if(measure ==14 && rndm==0){fdo(),setTimeout("timeOut()",2000)}
-
-            if(measure ==16 && rndm==0){fso(),setTimeout("timeOut()",500)}
-            if(measure ==17 && rndm==0){fso(),setTimeout("timeOut()",500)}
-            if(measure ==18 && rndm==0){ffa(),setTimeout("timeOut()",500)}
-            if(measure ==19 && rndm==0){ffa(),setTimeout("timeOut()",500)}
-            if(measure ==20 && rndm==0){fmi(),setTimeout("timeOut()",500)}
-            if(measure ==21 && rndm==0){fmi(),setTimeout("timeOut()",500)}
-            if(measure ==22 && rndm==0){fre(),setTimeout("timeOut()",2000)}
-            if(measure ==24 && rndm==0){fso(),setTimeout("timeOut()",500)}
-            if(measure ==25 && rndm==0){fso(),setTimeout("timeOut()",500)}
-            if(measure ==26 && rndm==0){ffa(),setTimeout("timeOut()",500)}
-            if(measure ==27 && rndm==0){ffa(),setTimeout("timeOut()",500)}
-            if(measure ==28 && rndm==0){fmi(),setTimeout("timeOut()",500)}
-            if(measure ==29 && rndm==0){fmi(),setTimeout("timeOut()",500)}
-            if(measure ==30 && rndm==0){fre(),setTimeout("timeOut()",2000)}
-
-            if(measure ==32 && rndm==0){fdo(),setTimeout("timeOut()",500)}
-            if(measure ==33 && rndm==0){fdo(),setTimeout("timeOut()",500)}
-            if(measure ==34 && rndm==0){fso(),setTimeout("timeOut()",500)}
-            if(measure ==35 && rndm==0){fso(),setTimeout("timeOut()",500)}
-            if(measure ==36 && rndm==0){fra(),setTimeout("timeOut()",500)}
-            if(measure ==37 && rndm==0){fra(),setTimeout("timeOut()",500)}
-            if(measure ==38 && rndm==0){fso(),setTimeout("timeOut()",2000)}
-            if(measure ==40 && rndm==0){ffa(),setTimeout("timeOut()",500)}
-            if(measure ==41 && rndm==0){ffa(),setTimeout("timeOut()",500)}
-            if(measure ==42 && rndm==0){fmi(),setTimeout("timeOut()",500)}
-            if(measure ==43 && rndm==0){fmi(),setTimeout("timeOut()",500)}
-            if(measure ==44 && rndm==0){fre(),setTimeout("timeOut()",500)}
-            if(measure ==45 && rndm==0){fre(),setTimeout("timeOut()",500)}
-            if(measure ==46 && rndm==0){fdo(),setTimeout("timeOut()",4000),
-            setTimeout("reSet()",4000)}
-
-            //チューリップ
-            if(measure ==0 && rndm==1){
-            soundTitle.textContent = '自動演奏中です：チューリップ',
-            fdo(),setTimeout("timeOut()",500),setTimeout("fre()",500)}
-            if(measure ==1 && rndm==1){
-            timeOut(),fmi()}
-            if(measure ==2 && rndm==1){
-            timeOut(),fdo(),setTimeout("timeOut()",500),setTimeout("fre()",500)}
-            if(measure ==3 && rndm==1){
-            timeOut(),fmi()}
-            if(measure ==4 && rndm==1){
-            timeOut(),fso(),setTimeout("timeOut()",500),setTimeout("fmi()",500)}
-            if(measure ==5 && rndm==1){
-            timeOut(),fre(),setTimeout("timeOut()",500),setTimeout("fdo()",500)}
-            if(measure ==6 && rndm==1){
-            timeOut(),fre(),setTimeout("timeOut()",500),setTimeout("fmi()",500)}
-            if(measure ==7 && rndm==1){
-            timeOut(),fre()}
-            if(measure ==8 && rndm==1){
-            timeOut(),fdo(),setTimeout("timeOut()",500),setTimeout("fre()",500)}
-            if(measure ==9 && rndm==1){
-            timeOut(),fmi()}
-            if(measure ==10 && rndm==1){
-            timeOut(),fdo(),setTimeout("timeOut()",500),setTimeout("fre()",500)}
-            if(measure ==11 && rndm==1){
-            timeOut(),fmi()}
-            if(measure ==12 && rndm==1){
-            timeOut(),fso(),setTimeout("timeOut()",500),setTimeout("fmi()",500)}
-            if(measure ==13 && rndm==1){
-            timeOut(),fre(),setTimeout("timeOut()",500),setTimeout("fdo()",500)}
-            if(measure ==14 && rndm==1){
-            timeOut(),fre(),setTimeout("timeOut()",500),setTimeout("fmi()",500)}
-            if(measure ==15 && rndm==1){
-            timeOut(),fdo()}
-            if(measure ==16 && rndm==1){
-            timeOut(),fso(),setTimeout("timeOut()",250),
-            setTimeout("fso()",500),setTimeout("timeOut()",750)}
-            if(measure ==17 && rndm==1){fmi(),setTimeout("timeOut()",250),
-            setTimeout("fso()",500),setTimeout("timeOut()",750)}
-            if(measure ==18 && rndm==1){fra(),setTimeout("timeOut()",250),
-            setTimeout("fra()",500),setTimeout("timeOut()",750)}
-            if(measure ==19 && rndm==1){fso()}
-            if(measure ==20 && rndm==1){fmi(),setTimeout("timeOut()",250),
-            setTimeout("fmi()",500),setTimeout("timeOut()",750)}
-            if(measure ==21 && rndm==1){fre(),setTimeout("timeOut()",250),
-            setTimeout("fre()",500),setTimeout("timeOut()",750)}
-            if(measure ==22 && rndm==1){fdo(),setTimeout("timeOut()",4000),
-            setTimeout("reSet()",4000)}
-            //console.log(rndm);
-        }
-        // 開始時間
-        let startTime ;
-        // 停止時間
-        let stopTime = 0;
-        // タイムアウトID
-        let timeoutID;
-        let timer2;
-        let time;
-        let measure;
-        let rndm = Math.floor(Math.random()*2);
-        function displayTime(){
-            kauto.addEventListener("click", count_stop); 
-            auto.textContent = "自動演奏";
-            time=new Date(Date.now()- startTime + stopTime);
-            //const min=Math.floor(time/1000/60)%60;
-            const sec = Math.floor(time/1000);
-            //const msec = Math.floor( time % 1000);
-            //const m= ( '00' + min ).slice( -2 );
-            const s= ( '00' + sec ).slice( -2);
-            //const ms = ( '00' + msec ).slice( -3 );
-            measure=`${s}`; 
-            timer2 = setTimeout("displayTime()",1000);
-            automaticPlay();
-            //console.log(measure);
-        }
-        function fauto(){
-            kdo.disabled = true;
-            kre.disabled = true;
-            kmi.disabled = true;
-            kfa.disabled = true;
-            kso.disabled = true;
-            kra.disabled = true;
-            ksi.disabled = true;
-            startTime = Date.now();
-            displayTime() ;
-            kauto.removeEventListener("click",fauto);
-            kauto.addEventListener("click", count_stop);
-        }
-        //stopの処理
-        function count_stop(){
-            auto.textContent = "演奏中止";
-            clearTimeout(timer2);
-            stopTime += (Date.now() - startTime); 
-            kauto.removeEventListener("click",count_stop);
-            kauto.addEventListener("click", fauto);
-        }
-        //resetの処理
-        function reSet(){
-            clearTimeout(timer2);
-            stopTime = 0; 
-            kauto.removeEventListener("click",count_stop);
-            kauto.addEventListener("click", fauto);
-            kdo.disabled = false;
-            kre.disabled = false;
-            kmi.disabled = false;
-            kfa.disabled = false;
-            kso.disabled = false;
-            kra.disabled = false;
-            ksi.disabled = false;
-            soundTitle.textContent = "";
-            send.textContent = '';
-            rndm = Math.floor(Math.random()*2);
-            }  
-        //イベント
-        //console.log(button1);
-        for (let i = 0; i < button1.length; i++) {
+    let button1 = document.querySelectorAll('.button');
+    for (let i = 0; i < button1.length; i++) {
         let button2=(button1[i]);
-        button2.addEventListener("click", manualPlay);
-        }
-        kauto.addEventListener("click", fauto);
-        //preventDefault()      
+        button2.addEventListener("click", keyClick);
+    }
+    //自動演奏
+    function stampNo(){
+            for (let i = 0; i < button1.length; i++) {
+            let button2=(button1[i]);
+            button2.disabled = true;
+            }
+    }
+    function stampOk(){
+                    for (let i = 0; i < button1.length; i++) {
+                    let button2=(button1[i]);
+                    button2.disabled = false;
+                    }
+                }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////ここから
+    let intervalID;
+    function autoMusic(){
+        stampNo();///////////////////////////////////////////////////////////////////////////////////////////////////
+        let i = 0;
+        let random = Math.floor(Math.random()*2);
+        let button1 = document.querySelectorAll('.button');
+        if(random==0){
+            //console.log(random);
+            function autoMusic1(){
+            auto.textContent = "自動演奏";
+            function playingMusic() {
+                display.textContent = kirakiraboshi[i];
+                i++;
+                if(i>kirakiraboshi.length){
+                    clearInterval(intervalID);
+                    soundTitle.textContent = '';
+                    kauto.removeEventListener("click",count_stop);
+                    kauto.addEventListener("click", autoMusic);
+                    stampOk();
+                }
+                function firelog(){
+                    button[0].style.borderBottomWidth='4px';
+                    button[1].style.borderBottomWidth='4px';
+                    button[2].style.borderBottomWidth='4px';
+                    button[3].style.borderBottomWidth='4px';
+                    button[4].style.borderBottomWidth='4px';
+                    button[5].style.borderBottomWidth='4px';
+                    button[6].style.borderBottomWidth='4px';                   
+                }
+
+                if(display.innerHTML=="ド"){
+                    firelog();
+                    let kdo = document.getElementById('do');
+                    button[0].style.borderBottomWidth='0px';    
+                }else if(display.innerHTML=="レ"){
+                    firelog();
+                    let kre = document.getElementById('re');
+                    button[1].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ミ"){
+                    firelog();
+                    let kmi = document.getElementById('mi');
+                    button[2].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ファ"){
+                    firelog();
+                    let kfa = document.getElementById('fa');
+                    button[3].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ソ"){
+                    firelog();
+                    let kso = document.getElementById('so');
+                    button[4].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ラ"){
+                    firelog();
+                    let kra = document.getElementById('ra');
+                    button[5].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="シ"){
+                    firelog();
+                    let ksi = document.getElementById('si');
+                    button[6].style.borderBottomWidth='0px';
+                }else if(display.innerHTML==""){
+                    firelog();
+                }
+            }
+            kauto.removeEventListener("click",autoMusic);
+            kauto.removeEventListener("click",autoMusic1);
+            kauto.addEventListener("click", count_stop);
+            soundTitle.textContent = '自動演奏中です：きらきら星';
+            const kirakiraboshi = ["ド", "", "ド", "", "ソ", "", "ソ", "", "ラ", "", "ラ", "", "ソ", "ソ", "ソ", "ソ",
+            "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド",
+            "ソ", "", "ソ", "", "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "レ", "レ", "レ",
+            "ソ", "", "ソ", "", "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "レ", "レ", "レ",
+            "ド", "", "ド", "", "ソ", "", "ソ", "", "ラ", "", "ラ", "", "ソ", "ソ", "ソ", "ソ",
+            "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド", "ド", "ド", "ド", "ド" 
+            ];
+            intervalID = setInterval(function() {
+                playingMusic();
+                }, 500);
+            }
+            autoMusic1();
+            function count_stop(){
+                auto.textContent = "演奏中止";
+                clearInterval(intervalID); 
+                kauto.removeEventListener("click",count_stop);
+                kauto.addEventListener("click", autoMusic1);
+            }
+        }else{
+            console.log(1);
+            function autoMusic1(){
+            auto.textContent = "自動演奏";
+            function playingMusic(){
+                display.textContent = tulip[i];
+                i++;
+                if(i>tulip.length){
+                    clearInterval(intervalID);
+                    soundTitle.textContent = '';
+                    kauto.removeEventListener("click",count_stop);
+                    kauto.addEventListener("click", autoMusic);
+                    stampOk()
+                }
+                function firelog(){
+                    button[0].style.borderBottomWidth='4px';
+                    button[1].style.borderBottomWidth='4px';
+                    button[2].style.borderBottomWidth='4px';
+                    button[3].style.borderBottomWidth='4px';
+                    button[4].style.borderBottomWidth='4px';
+                    button[5].style.borderBottomWidth='4px';
+                    button[6].style.borderBottomWidth='4px';                   
+                }
+
+                if(display.innerHTML=="ド"){
+                    firelog();
+                    let kdo = document.getElementById('do');
+                    button[0].style.borderBottomWidth='0px';    
+                }else if(display.innerHTML=="レ"){
+                    firelog();
+                    let kre = document.getElementById('re');
+                    button[1].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ミ"){
+                    firelog();
+                    let kmi = document.getElementById('mi');
+                    button[2].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ファ"){
+                    firelog();
+                    let kfa = document.getElementById('fa');
+                    button[3].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ソ"){
+                    firelog();
+                    let kso = document.getElementById('so');
+                    button[4].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ラ"){
+                    firelog();
+                    let kra = document.getElementById('ra');
+                    button[5].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="シ"){
+                    firelog();
+                    let ksi = document.getElementById('si');
+                    button[6].style.borderBottomWidth='0px';
+                }else if(display.innerHTML==""){
+                    firelog();
+                }
+            }
+            kauto.removeEventListener("click",autoMusic);
+            kauto.removeEventListener("click",autoMusic1);
+            kauto.addEventListener("click", count_stop);
+            soundTitle.textContent = '自動演奏中です：チューリップ';
+            const tulip = ["ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ", "ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ",
+            "ソ", "ソ", "ミ", "ミ", "レ", "レ", "ド", "ド", "レ", "レ", "ミ", "ミ", "レ", "レ", "レ", "レ","ド", "ド", "レ", "レ", 
+            "ミ", "ミ", "ミ", "ミ", "ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ", "ソ", "ソ", "ミ", "ミ","レ", "レ", "ド", "ド",
+            "レ", "レ", "ミ", "ミ", "ド", "ド", "ド", "ド", "ソ", "", "ソ", "", "ミ", "", "ソ", "","ラ", "", "ラ", "",
+            "ソ", "ソ", "ソ", "ソ", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド","ド", "ド", "ド", "ド",
+            "ド", "ド", "ド", "ド", "ド", "ド", "ド" 
+            ];
+            intervalID = setInterval(function() {
+                playingMusic();
+                }, 250);       
+            }
+            autoMusic1();
+            function count_stop(){
+                auto.textContent = "演奏中止";
+                clearInterval(intervalID); 
+                kauto.removeEventListener("click",count_stop);
+                kauto.addEventListener("click", autoMusic1);
+            }
+        }//stampOk();
+    }
+    //イベント
+    kauto.addEventListener("click", autoMusic);
 </script>
 </body>
 </html>
