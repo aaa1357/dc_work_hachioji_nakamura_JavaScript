@@ -49,6 +49,7 @@ body{margin: 0 auto;
     max-height: 30%;
     padding-top: 5%;
 }
+
 .button{
     width: 13%;
     height: 100%;
@@ -102,6 +103,7 @@ body{margin: 0 auto;
     //手動演奏
     let button;
     let TimerID;
+
     window.onload = function () {
         button = document.getElementsByClassName('button');
         display = document.getElementById('send');
@@ -134,11 +136,12 @@ body{margin: 0 auto;
             }
     }
     function stampOk(){
-            for (let i = 0; i < button1.length; i++) {
-                let button2=(button1[i]);
-                button2.disabled = false;
+                    for (let i = 0; i < button1.length; i++) {
+                    let button2=(button1[i]);
+                    button2.disabled = false;
+                    }
                 }
-    }
+
     let intervalID;
     function autoMusic(){
         stampNo();
@@ -155,6 +158,7 @@ body{margin: 0 auto;
                     button[5].style.borderBottomWidth='4px';
                     button[6].style.borderBottomWidth='4px';                   
                 }
+
                 if(display.innerHTML=="ド"){
                     firelog();
                     let kdo = document.getElementById('do');
@@ -186,76 +190,86 @@ body{margin: 0 auto;
                 }else if(display.innerHTML==""){
                     firelog();
                 }
-        }
-        function event1(){soundTitle.textContent = '';
-                kauto.removeEventListener("click",count_stop);
-                kauto.addEventListener("click", autoMusic);
-                stampOk();let random = Math.floor(Math.random()*2);
-        }
-        function event2(){
-                kauto.removeEventListener("click",autoMusic);
-                kauto.removeEventListener("click",autoMusic1);
-                kauto.addEventListener("click", count_stop);                    
-        }
-        //console.log(random);
-        function autoMusic1(){
-            if(random==0){
-                auto.textContent = "自動演奏";
-                function playingMusic() {
-                    soundTitle.textContent = '自動演奏中です：きらきら星';
-                    const kirakiraboshi = ["ド", "", "ド", "", "ソ", "", "ソ", "", "ラ", "", "ラ", "", "ソ", "ソ", "ソ", "ソ",
-                    "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド",
-                    "ソ", "", "ソ", "", "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "レ", "レ", "レ",
-                    "ソ", "", "ソ", "", "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "レ", "レ", "レ",
-                    "ド", "", "ド", "", "ソ", "", "ソ", "", "ラ", "", "ラ", "", "ソ", "ソ", "ソ", "ソ",
-                    "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド", "ド", "ド", "ド", "ド" 
-                    ];
-                    display.textContent = kirakiraboshi[i];
-                    i++;
-                    if(i>kirakiraboshi.length){
+                }
+        if(random==0){
+            //console.log(random);
+            function autoMusic1(){
+            auto.textContent = "自動演奏";
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////            
+            function playingMusic() {
+                display.textContent = kirakiraboshi[i];
+                i++;
+                if(i>kirakiraboshi.length){
                     clearInterval(intervalID);
-                    event1();
-                    }
-                    move();
+                    soundTitle.textContent = '';
+                    kauto.removeEventListener("click",count_stop);
+                    kauto.addEventListener("click", autoMusic);
+                    stampOk();
                 }
-                event2();
-                intervalID = setInterval(function() {
-                    playingMusic();
-                }, 500);
-            }    
-            if(random==1){
-                auto.textContent = "自動演奏";
-                function playingMusic() {
-                    soundTitle.textContent = '自動演奏中です：チューリップ';
-                    const tulip = ["ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ", "ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ",
-                    "ソ", "ソ", "ミ", "ミ", "レ", "レ", "ド", "ド", "レ", "レ", "ミ", "ミ", "レ", "レ", "レ", "レ","ド", "ド", "レ", "レ", 
-                    "ミ", "ミ", "ミ", "ミ", "ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ", "ソ", "ソ", "ミ", "ミ","レ", "レ", "ド", "ド",
-                    "レ", "レ", "ミ", "ミ", "ド", "ド", "ド", "ド", "ソ", "", "ソ", "", "ミ", "", "ソ", "","ラ", "", "ラ", "",
-                    "ソ", "ソ", "ソ", "ソ", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド","ド", "ド", "ド", "ド",
-                    "ド", "ド", "ド", "ド", "ド", "ド", "ド" 
-                    ];
-                    display.textContent = tulip[i];
-                    i++;
-                    if(i>tulip.length){
-                        clearInterval(intervalID);
-                        event1();
-                    }
-                    move();
-                }
-                event2();
-                intervalID = setInterval(function() {
-                    playingMusic();
-                }, 250);
+            move();
             }
+            kauto.removeEventListener("click",autoMusic);
+            kauto.removeEventListener("click",autoMusic1);
+            kauto.addEventListener("click", count_stop);
+            soundTitle.textContent = '自動演奏中です：きらきら星';
+            const kirakiraboshi = ["ド", "", "ド", "", "ソ", "", "ソ", "", "ラ", "", "ラ", "", "ソ", "ソ", "ソ", "ソ",
+            "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド",
+            "ソ", "", "ソ", "", "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "レ", "レ", "レ",
+            "ソ", "", "ソ", "", "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "レ", "レ", "レ",
+            "ド", "", "ド", "", "ソ", "", "ソ", "", "ラ", "", "ラ", "", "ソ", "ソ", "ソ", "ソ",
+            "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド", "ド", "ド", "ド", "ド" 
+            ];
+            intervalID = setInterval(function() {
+                playingMusic();
+                }, 500);
+            }
+            autoMusic1();
+            function count_stop(){
+                auto.textContent = "演奏中止";
+                clearInterval(intervalID); 
+                kauto.removeEventListener("click",count_stop);
+                kauto.addEventListener("click", autoMusic1);
+            }///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        }else{
+            function autoMusic1(){
+            auto.textContent = "自動演奏";
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            function playingMusic(){
+                display.textContent = tulip[i];
+                i++;
+                if(i>tulip.length){
+                    clearInterval(intervalID);
+                    soundTitle.textContent = '';
+                    kauto.removeEventListener("click",count_stop);
+                    kauto.addEventListener("click", autoMusic);
+                    stampOk()
+                }
+                move();    
+            }
+            kauto.removeEventListener("click",autoMusic);
+            kauto.removeEventListener("click",autoMusic1);
+            kauto.addEventListener("click", count_stop);
+            soundTitle.textContent = '自動演奏中です：チューリップ';
+            const tulip = ["ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ", "ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ",
+            "ソ", "ソ", "ミ", "ミ", "レ", "レ", "ド", "ド", "レ", "レ", "ミ", "ミ", "レ", "レ", "レ", "レ","ド", "ド", "レ", "レ", 
+            "ミ", "ミ", "ミ", "ミ", "ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ", "ソ", "ソ", "ミ", "ミ","レ", "レ", "ド", "ド",
+            "レ", "レ", "ミ", "ミ", "ド", "ド", "ド", "ド", "ソ", "", "ソ", "", "ミ", "", "ソ", "","ラ", "", "ラ", "",
+            "ソ", "ソ", "ソ", "ソ", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド","ド", "ド", "ド", "ド",
+            "ド", "ド", "ド", "ド", "ド", "ド", "ド" 
+            ];
+            intervalID = setInterval(function() {
+                playingMusic();
+                }, 250);       
+            }
+            autoMusic1();
+            function count_stop(){
+                auto.textContent = "演奏中止";
+                clearInterval(intervalID); 
+                kauto.removeEventListener("click",count_stop);
+                kauto.addEventListener("click", autoMusic1);
+            }/////////////////////////////////////////////////////////////////////////////////////////////////////////
         }
-        autoMusic1();
-        function count_stop(){
-            auto.textContent = "演奏中止";
-            clearInterval(intervalID); 
-            kauto.removeEventListener("click",count_stop);
-            kauto.addEventListener("click", autoMusic1);
-        }
-    }    
+    }
     //イベント
     kauto.addEventListener("click", autoMusic);
 </script>

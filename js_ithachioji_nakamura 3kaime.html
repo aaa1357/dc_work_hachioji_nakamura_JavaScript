@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡易ピアノアプリ</title>
+    <style>
+body{margin: 0 auto;
+}
+.piano{
+    border: 1px solid;
+    text-align: center;
+    max-width: 70%;
+    min-width: 300px;
+    max-height: 50%;
+    min-height: 50%;
+    margin: 0 auto;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    background-color: #f5f5f5;
+}
+.display{
+    background-color: antiquewhite;
+    max-width: 30%;
+    min-height: 50px;
+    margin: 0 auto;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.soundName{
+    max-width: 30%;
+    min-height: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+.kenban{
+    margin-bottom: 5%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 30%;
+    padding-top: 5%;
+}
+
+.button{
+    width: 13%;
+    height: 100%;
+    margin: 0px 3px;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #000;
+    color: blue;
+    border-bottom: solid 4px #627295;
+}
+.button1{
+    width: 100%;
+    background-color: white;
+    border: 1px solid #000;
+    color: blue;
+    border-bottom: solid 4px #627295
+}
+.button1:active{
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+        border-bottom: none;
+}
+.auto{   
+    width: 30%;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+    </style>
+</head>
+<body>
+    <div class="piano">
+        <div class="soundName" id="soundTitle"></div>
+    <div class="display" id="send"></div>
+    <form class="kenban" action="javascript:void(0)" id="kenban1">
+        <button type="submit" class="button" id="do">ド</button>
+        <button type="submit" class="button" id="re">レ</button>
+        <button type="submit" class="button" id="mi">ミ</button>
+        <button type="submit" class="button" id="fa">ファ</button>
+        <button type="submit" class="button" id="so">ソ</button>
+        <button type="submit" class="button" id="ra">ラ</button>
+        <button type="submit" class="button" id="si">シ</button>    
+    </form>
+    <div class="auto">
+        <button type="submit" class="button1" id="auto">自動演奏</button>
+    </div>
+</div>
+<script>
+    //要素取得    
+    let kauto = document.getElementById('auto');
+    let soundTitle = document.getElementById('soundTitle');
+    //手動演奏
+    let button;
+    let TimerID;
+
+    window.onload = function () {
+        button = document.getElementsByClassName('button');
+        display = document.getElementById('send');
+    }
+    const keyClick = (e) => {
+            clearTimeout(TimerID);
+            for (var i=0; i<button.length; i++){
+                button[i].style.borderBottomWidth='4px';
+            }
+            display.innerHTML = e.target.innerHTML;
+            e.target.style.borderBottomWidth='0px';;
+            TimerID = setTimeout(defaultNote,1000);
+    }
+    function defaultNote(){
+        display.innerHTML = "";
+        for (var i=0; i<button.length; i++){
+            button[i].style.borderBottomWidth='4px';
+        }
+    }
+    let button1 = document.querySelectorAll('.button');
+    for (let i = 0; i < button1.length; i++) {
+        let button2=(button1[i]);
+        button2.addEventListener("click", keyClick);
+    }
+    //自動演奏
+    function stampNo(){
+            for (let i = 0; i < button1.length; i++) {
+            let button2=(button1[i]);
+            button2.disabled = true;
+            }
+    }
+    function stampOk(){
+                    for (let i = 0; i < button1.length; i++) {
+                    let button2=(button1[i]);
+                    button2.disabled = false;
+                    }
+                }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////ここから
+    let intervalID;
+    function autoMusic(){
+        stampNo();///////////////////////////////////////////////////////////////////////////////////////////////////
+        let i = 0;
+        let random = Math.floor(Math.random()*2);
+        let button1 = document.querySelectorAll('.button');
+        if(random==0){
+            //console.log(random);
+            function autoMusic1(){
+            auto.textContent = "自動演奏";
+            function playingMusic() {
+                display.textContent = kirakiraboshi[i];
+                i++;
+                if(i>kirakiraboshi.length){
+                    clearInterval(intervalID);
+                    soundTitle.textContent = '';
+                    kauto.removeEventListener("click",count_stop);
+                    kauto.addEventListener("click", autoMusic);
+                    stampOk();
+                }
+                function firelog(){
+                    button[0].style.borderBottomWidth='4px';
+                    button[1].style.borderBottomWidth='4px';
+                    button[2].style.borderBottomWidth='4px';
+                    button[3].style.borderBottomWidth='4px';
+                    button[4].style.borderBottomWidth='4px';
+                    button[5].style.borderBottomWidth='4px';
+                    button[6].style.borderBottomWidth='4px';                   
+                }
+
+                if(display.innerHTML=="ド"){
+                    firelog();
+                    let kdo = document.getElementById('do');
+                    button[0].style.borderBottomWidth='0px';    
+                }else if(display.innerHTML=="レ"){
+                    firelog();
+                    let kre = document.getElementById('re');
+                    button[1].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ミ"){
+                    firelog();
+                    let kmi = document.getElementById('mi');
+                    button[2].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ファ"){
+                    firelog();
+                    let kfa = document.getElementById('fa');
+                    button[3].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ソ"){
+                    firelog();
+                    let kso = document.getElementById('so');
+                    button[4].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ラ"){
+                    firelog();
+                    let kra = document.getElementById('ra');
+                    button[5].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="シ"){
+                    firelog();
+                    let ksi = document.getElementById('si');
+                    button[6].style.borderBottomWidth='0px';
+                }else if(display.innerHTML==""){
+                    firelog();
+                }
+            }
+            kauto.removeEventListener("click",autoMusic);
+            kauto.removeEventListener("click",autoMusic1);
+            kauto.addEventListener("click", count_stop);
+            soundTitle.textContent = '自動演奏中です：きらきら星';
+            const kirakiraboshi = ["ド", "", "ド", "", "ソ", "", "ソ", "", "ラ", "", "ラ", "", "ソ", "ソ", "ソ", "ソ",
+            "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド",
+            "ソ", "", "ソ", "", "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "レ", "レ", "レ",
+            "ソ", "", "ソ", "", "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "レ", "レ", "レ",
+            "ド", "", "ド", "", "ソ", "", "ソ", "", "ラ", "", "ラ", "", "ソ", "ソ", "ソ", "ソ",
+            "ファ", "", "ファ", "", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド", "ド", "ド", "ド", "ド" 
+            ];
+            intervalID = setInterval(function() {
+                playingMusic();
+                }, 500);
+            }
+            autoMusic1();
+            function count_stop(){
+                auto.textContent = "演奏中止";
+                clearInterval(intervalID); 
+                kauto.removeEventListener("click",count_stop);
+                kauto.addEventListener("click", autoMusic1);
+            }
+        }else{
+            console.log(1);
+            function autoMusic1(){
+            auto.textContent = "自動演奏";
+            function playingMusic(){
+                display.textContent = tulip[i];
+                i++;
+                if(i>tulip.length){
+                    clearInterval(intervalID);
+                    soundTitle.textContent = '';
+                    kauto.removeEventListener("click",count_stop);
+                    kauto.addEventListener("click", autoMusic);
+                    stampOk()
+                }
+                function firelog(){
+                    button[0].style.borderBottomWidth='4px';
+                    button[1].style.borderBottomWidth='4px';
+                    button[2].style.borderBottomWidth='4px';
+                    button[3].style.borderBottomWidth='4px';
+                    button[4].style.borderBottomWidth='4px';
+                    button[5].style.borderBottomWidth='4px';
+                    button[6].style.borderBottomWidth='4px';                   
+                }
+
+                if(display.innerHTML=="ド"){
+                    firelog();
+                    let kdo = document.getElementById('do');
+                    button[0].style.borderBottomWidth='0px';    
+                }else if(display.innerHTML=="レ"){
+                    firelog();
+                    let kre = document.getElementById('re');
+                    button[1].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ミ"){
+                    firelog();
+                    let kmi = document.getElementById('mi');
+                    button[2].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ファ"){
+                    firelog();
+                    let kfa = document.getElementById('fa');
+                    button[3].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ソ"){
+                    firelog();
+                    let kso = document.getElementById('so');
+                    button[4].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="ラ"){
+                    firelog();
+                    let kra = document.getElementById('ra');
+                    button[5].style.borderBottomWidth='0px';
+                }else if(display.innerHTML=="シ"){
+                    firelog();
+                    let ksi = document.getElementById('si');
+                    button[6].style.borderBottomWidth='0px';
+                }else if(display.innerHTML==""){
+                    firelog();
+                }
+            }
+            kauto.removeEventListener("click",autoMusic);
+            kauto.removeEventListener("click",autoMusic1);
+            kauto.addEventListener("click", count_stop);
+            soundTitle.textContent = '自動演奏中です：チューリップ';
+            const tulip = ["ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ", "ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ",
+            "ソ", "ソ", "ミ", "ミ", "レ", "レ", "ド", "ド", "レ", "レ", "ミ", "ミ", "レ", "レ", "レ", "レ","ド", "ド", "レ", "レ", 
+            "ミ", "ミ", "ミ", "ミ", "ド", "ド", "レ", "レ", "ミ", "ミ", "ミ", "ミ", "ソ", "ソ", "ミ", "ミ","レ", "レ", "ド", "ド",
+            "レ", "レ", "ミ", "ミ", "ド", "ド", "ド", "ド", "ソ", "", "ソ", "", "ミ", "", "ソ", "","ラ", "", "ラ", "",
+            "ソ", "ソ", "ソ", "ソ", "ミ", "", "ミ", "", "レ", "", "レ", "", "ド", "ド", "ド", "ド","ド", "ド", "ド", "ド",
+            "ド", "ド", "ド", "ド", "ド", "ド", "ド" 
+            ];
+            intervalID = setInterval(function() {
+                playingMusic();
+                }, 250);       
+            }
+            autoMusic1();
+            function count_stop(){
+                auto.textContent = "演奏中止";
+                clearInterval(intervalID); 
+                kauto.removeEventListener("click",count_stop);
+                kauto.addEventListener("click", autoMusic1);
+            }
+        }//stampOk();
+    }
+    //イベント
+    kauto.addEventListener("click", autoMusic);
+</script>
+</body>
+</html>
