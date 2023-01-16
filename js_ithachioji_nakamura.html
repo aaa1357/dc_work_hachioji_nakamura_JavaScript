@@ -146,7 +146,7 @@ body{margin: 0 auto;
         let random = Math.floor(Math.random()*2);
         let button1 = document.querySelectorAll('.button');
         function move(){
-                    function firelog(){
+                function firelog(){
                     button[0].style.borderBottomWidth='4px';
                     button[1].style.borderBottomWidth='4px';
                     button[2].style.borderBottomWidth='4px';
@@ -155,36 +155,45 @@ body{margin: 0 auto;
                     button[5].style.borderBottomWidth='4px';
                     button[6].style.borderBottomWidth='4px';                   
                 }
-                if(display.innerHTML=="ド"){
-                    firelog();
-                    let kdo = document.getElementById('do');
-                    button[0].style.borderBottomWidth='0px';    
-                }else if(display.innerHTML=="レ"){
-                    firelog();
-                    let kre = document.getElementById('re');
-                    button[1].style.borderBottomWidth='0px';
-                }else if(display.innerHTML=="ミ"){
-                    firelog();
-                    let kmi = document.getElementById('mi');
-                    button[2].style.borderBottomWidth='0px';
-                }else if(display.innerHTML=="ファ"){
-                    firelog();
-                    let kfa = document.getElementById('fa');
-                    button[3].style.borderBottomWidth='0px';
-                }else if(display.innerHTML=="ソ"){
-                    firelog();
-                    let kso = document.getElementById('so');
-                    button[4].style.borderBottomWidth='0px';
-                }else if(display.innerHTML=="ラ"){
-                    firelog();
-                    let kra = document.getElementById('ra');
-                    button[5].style.borderBottomWidth='0px';
-                }else if(display.innerHTML=="シ"){
-                    firelog();
-                    let ksi = document.getElementById('si');
-                    button[6].style.borderBottomWidth='0px';
-                }else if(display.innerHTML==""){
-                    firelog();
+                switch(display.innerHTML){
+                    case "ド":
+                        firelog();
+                        let kdo = document.getElementById('do');
+                        button[0].style.borderBottomWidth='0px';
+                    break;
+                    case "レ":
+                        firelog();
+                        let kre = document.getElementById('re');
+                        button[1].style.borderBottomWidth='0px';
+                    break;
+                    case "ミ":
+                        firelog();
+                        let kmi = document.getElementById('mi');
+                        button[2].style.borderBottomWidth='0px';
+                    break;
+                    case "ファ":
+                        firelog();
+                        let kfa = document.getElementById('fa');
+                        button[3].style.borderBottomWidth='0px';
+                    break;
+                    case "ソ":
+                        firelog();
+                        let kso = document.getElementById('so');
+                        button[4].style.borderBottomWidth='0px';
+                    break;
+                    case "ラ":
+                        firelog();
+                        let kra = document.getElementById('ra');
+                        button[5].style.borderBottomWidth='0px';
+                    break;
+                    case "シ":
+                        firelog();
+                        let ksi = document.getElementById('si');
+                        button[6].style.borderBottomWidth='0px';
+                    break;
+                    case "":
+                        firelog();
+                    break;                                                                                
                 }
         }
         function event1(){soundTitle.textContent = '';
